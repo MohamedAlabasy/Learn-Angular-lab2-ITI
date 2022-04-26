@@ -1,0 +1,51 @@
+<div class="container my-5">
+  <h1 class="text-center">student</h1>
+
+  <table class="table table-striped table-hover text-center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>deptNo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of studentList; let number=index">
+        <td>{{number}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.deptNo}}</td>
+        <td>
+          <button (click)="showDetails(item.id)" class="btn btn-secondary">show Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table [hidden]="isHidden" class="table table-dark table-borderless text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>deptNo</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{newStudent.id}}</td>
+        <td>{{newStudent.name}}</td>
+        <td>{{newStudent.age}}</td>
+        <td>{{newStudent.deptNo}}</td>
+        <td>
+          <button (click)="hideDept()" class="btn btn-warning m-1">hide Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

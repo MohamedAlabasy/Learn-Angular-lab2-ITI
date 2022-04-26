@@ -1,0 +1,51 @@
+<hr>
+<div class="container my-5">
+  <h1 class="text-center">Department</h1>
+  <table class="table table-striped table-hover text-center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of departmentList; let number=index">
+        <td>{{number}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.location}}</td>
+        <td>
+          <button (click)="showData(item.id)" class="btn btn-primary m-1">update</button>
+          <button (click)="deleteDept(item.id)" class="btn btn-danger m-1">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table [hidden]="isHidden" class="table table-dark table-borderless text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>location</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- <td><input disabled class="text-center" type="text" [(ngModel)]="newDepartment.id"></td>
+        <td><input #name type="text" class="text-center" [(ngModel)]="newDepartment.name"></td>
+        <td><input #location type=" text" class="text-center" [(ngModel)]="newDepartment.location"></td> -->
+        <td><input disabled class="text-center" type="text" [value]="newDepartment.id"></td>
+        <td><input #name type="text" class="text-center" [value]="newDepartment.name"></td>
+        <td><input #location type=" text" class="text-center" [value]="newDepartment.location"></td>
+        <td>
+          <button (click)="updateDept(name.value,location.value)" class="btn btn-success m-1">update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
